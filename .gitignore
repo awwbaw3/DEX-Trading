@@ -2,6 +2,10 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.log
+*.json
+*.crypto
+*.key
 
 # C extensions
 *.so
