@@ -1,0 +1,83 @@
+### Step 1: Clone Your Forked Repository
+
+1. **Open VS Code** and access the **Terminal** (`Terminal` > `New Terminal`).
+2. **Navigate** to your projects directory:
+   ```bash
+   cd C:\users\albaugh\projects
+   ```
+3. **Clone your forked repository** into the `DEX-Trading` directory:
+   ```bash
+   git clone https://github.com/awwbaw3/DEX-Trading.git DEX-Trading
+   ```
+4. **Move into the project directory**:
+   ```bash
+   cd DEX-Trading
+   ```
+
+### Step 2: Create a New Conda Environment
+
+1. **Create a new Conda environment**. Replace `python=3.8` with the version needed for your project if different:
+   ```bash
+   conda create --name dex-trading python=3.8
+   ```
+2. **Activate the newly created environment**:
+   ```bash
+   conda activate dex-trading
+   ```
+
+### Step 3: Initialize Poetry Within the Conda Environment
+
+1. **Ensure your Conda environment is activated**. If not, activate it as shown in the previous step.
+2. **Initialize Poetry** for your project. If the project doesn’t already include a `pyproject.toml`, you can create one by running:
+   ```bash
+   poetry init
+   ```
+   Follow the prompts to define your project's dependencies and properties. You can also manually add dependencies later.
+
+3. **Add dependencies**. If your project already has dependencies listed in a `requirements.txt` file or you know the dependencies you need, add them with:
+   ```bash
+   poetry add <package-name>
+   ```
+   Repeat for each dependency or use a space-separated list to add multiple dependencies at once.
+
+### Step 4: Configure VS Code to Use the Conda Environment
+
+1. **Open the Command Palette** in VS Code (`Ctrl+Shift+P` or `Cmd+Shift+P` on macOS).
+2. **Select the Python interpreter** by searching for “Python: Select Interpreter” and choose the interpreter associated with your newly created Conda environment (`dex-trading`).
+
+### Step 5: Install Project Dependencies Using Poetry
+
+1. With your Conda environment activated and Poetry initialized, you can **install the project's dependencies**. If the project already specifies dependencies in `pyproject.toml`, run:
+   ```bash
+   poetry install
+   ```
+   This installs all specified dependencies into the Conda environment, making them available for your project.
+
+### Step 6: Working on Your Project
+
+- You can now **start working** on your project in VS Code, with Conda managing your Python environment and Poetry handling Python package dependencies.
+- Use the integrated terminal in VS Code for running scripts or commands, making sure your Conda environment is always activated.
+
+### Step 7: Version Control and Collaboration
+
+- **Commit changes** to your repository as you make progress:
+  ```bash
+  git add .
+  git commit -m "Your commit message"
+  ```
+- **Push changes** to GitHub:
+  ```bash
+  git push origin master
+  ```
+- If you want to **fetch updates** from the original repository, you need to add it as an upstream source (if you haven’t already):
+  ```bash
+  git remote add upstream https://github.com/henrytirla/Decentralized-Exchange-Trading-Scripts.git
+  ```
+  Then, you can fetch and merge changes from the upstream repository:
+  ```bash
+  git fetch upstream
+  git merge upstream/master
+  ```
+
+This setup leverages Conda for environment management and Poetry for dependency management, providing a robust framework for Python project development. Remember, the steps for adding upstream sources and syncing with the original repository are optional but recommended for collaborative projects.
+

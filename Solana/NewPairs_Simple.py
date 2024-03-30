@@ -1,5 +1,5 @@
 "Detect  New Pools Created on Solana Raydium DEX"
-
+#working
 # TODO Add Buys ,Sells price and liquidity pool tracking management
 
 import asyncio

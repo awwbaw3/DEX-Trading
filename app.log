@@ -1,0 +1,66 @@
+DEBUG:asyncio:Using proactor: IocpProactor
+DEBUG:websockets.client:= connection is CONNECTING
+DEBUG:websockets.client:> GET / HTTP/1.1
+DEBUG:websockets.client:> Host: api.mainnet-beta.solana.com
+DEBUG:websockets.client:> Upgrade: websocket
+DEBUG:websockets.client:> Connection: Upgrade
+DEBUG:websockets.client:> Sec-WebSocket-Key: I0BI4gz42woe2uBlAUObog==
+DEBUG:websockets.client:> Sec-WebSocket-Version: 13
+DEBUG:websockets.client:> Sec-WebSocket-Extensions: permessage-deflate; client_max_window_bits
+DEBUG:websockets.client:> User-Agent: Python/3.12 websockets/11.0.3
+DEBUG:websockets.client:< HTTP/1.1 101 Switching Protocols
+DEBUG:websockets.client:< upgrade: websocket
+DEBUG:websockets.client:< connection: Upgrade
+DEBUG:websockets.client:< sec-websocket-accept: 9uUmomnaUhSnoVQYyUgOO2TRB6Q=
+DEBUG:websockets.client:< x-rpc-node: pit37
+DEBUG:websockets.client:< x-ratelimit-tier: free
+DEBUG:websockets.client:< x-ratelimit-method-limit: 40
+DEBUG:websockets.client:< x-ratelimit-method-remaining: 39
+DEBUG:websockets.client:< x-ratelimit-rps-limit: 100
+DEBUG:websockets.client:< x-ratelimit-rps-remaining: 99
+DEBUG:websockets.client:< x-ratelimit-endpoint-limit: unlimited
+DEBUG:websockets.client:< x-ratelimit-endpoint-remaining: -848
+DEBUG:websockets.client:< x-ratelimit-conn-limit: 40
+DEBUG:websockets.client:< x-ratelimit-conn-remaining: 39
+DEBUG:websockets.client:< x-ratelimit-connrate-limit: 40
+DEBUG:websockets.client:< x-ratelimit-connrate-remaining: 39
+DEBUG:websockets.client:< x-ratelimit-pubsub-limit: 5
+DEBUG:websockets.client:< x-ratelimit-pubsub-remaining: 5
+DEBUG:websockets.client:< access-control-allow-origin: backend_traffic
+DEBUG:websockets.client:< access-control-allow-methods: OPTIONS, POST, GET
+DEBUG:websockets.client:< access-control-allow-headers: authorization, *
+DEBUG:websockets.client:< access-control-max-age: 86400
+DEBUG:websockets.client:< allow: OPTIONS, POST, GET
+DEBUG:websockets.client:= connection is OPEN
+DEBUG:websockets.client:> TEXT '{"method":"logsSubscribe","jsonrpc":"2.0","id":...mitment":"finalized"}]}' [149 bytes]
+DEBUG:websockets.client:< TEXT '{"jsonrpc":"2.0","result":13546474,"id":1}' [42 bytes]
+INFO:root:5Xy1JcqtXh8SsT3pb75rCmxRBLYKAyWcdzJa2uQsNYPS1e7vQL2tTEMw7qRFg4XEkZu7bTsdUEZjC2TJt2Ntsec4
+INFO:root:Program log: initialize2: InitializeInstruction2 { nonce: 254, open_time: 1711805940, init_pc_amount: 360000000000, init_coin_amount: 50000000000000 }
+INFO:root:i=0
+INFO:httpx:HTTP Request: POST https://api.mainnet-beta.solana.com "HTTP/1.1 200 OK"
+INFO:root:<generator object instructions_with_program_id.<locals>.<genexpr> at 0x000002DE3D457AC0>
+INFO:root:find LP !!!
+INFO:root:
+ Token0: DQZUMWZjsxJvD92LGQBNKLeJpbwQMmf6DcqLgCjeKHEC, 
+ Token1: So11111111111111111111111111111111111111112, 
+ Pair: H4XaqDQKeTuXhikyeWRe5DGzXyhQLi473szFhweaLfLr
+INFO:root:34Lhs3stFSqr4g9tRjcDgQiTn1S13Bc3CxDX7TKqp9iA8hP4zsFNFeRzMjDFpX1Pnm6c9QqTks4MRVFAcK4MdVBF
+INFO:root:Program log: initialize2: InitializeInstruction2 { nonce: 254, open_time: 1711805975, init_pc_amount: 2000000000, init_coin_amount: 399000000000000000 }
+INFO:root:i=1
+INFO:httpx:HTTP Request: POST https://api.mainnet-beta.solana.com "HTTP/1.1 200 OK"
+INFO:root:<generator object instructions_with_program_id.<locals>.<genexpr> at 0x000002DE3D4579F0>
+INFO:root:find LP !!!
+INFO:root:
+ Token0: 3eBzFLdrAVPQUuFfM1nAzf6HC2HVZoRiSS41zYoZpzXG, 
+ Token1: So11111111111111111111111111111111111111112, 
+ Pair: GZ9nkfZ5E4NKjEPM8phvTVDyNUZRgAWAhAKEwZPjDe6X
+INFO:root:4jTjJBpTM5UHYFy51YfbuEWE24uAWHP2EpQMcTTTCXdH4dbYnEyvrkQtNPoEGfKpnayCQmo83rkyiVcD69SWeLRz
+INFO:root:Program log: initialize2: InitializeInstruction2 { nonce: 254, open_time: 1711806900, init_pc_amount: 60000000000, init_coin_amount: 950000000000000 }
+INFO:root:i=2
+INFO:httpx:HTTP Request: POST https://api.mainnet-beta.solana.com "HTTP/1.1 200 OK"
+INFO:root:<generator object instructions_with_program_id.<locals>.<genexpr> at 0x000002DE3D4579F0>
+INFO:root:find LP !!!
+INFO:root:
+ Token0: CNtCgs86zZoM5a7cmshc8n1e9xToXxfGTJjX8XaUVvdH, 
+ Token1: So11111111111111111111111111111111111111112, 
+ Pair: 9gEbkJUuxoMy75LNUPAitwf464Bp9YuAcrgFsvFyvvLS
