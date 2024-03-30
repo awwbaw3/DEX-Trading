@@ -14,10 +14,20 @@ from create_close_account import  fetch_pool_keys,  make_swap_instruction
 from spl.token.client import Token
 from spl.token.core import _TokenCore
 
-from dotenv import dotenv_values
-config = dotenv_values(".env")
+from dotenv import load_dotenv
+import os
 
-async_solana_client= AsyncClient(config["RPC_HTTPS_URL"]) #Enter your API KEY in .env file
+load_dotenv()  # Loads the environment variables from .env file
+
+config = {
+    "RPC_HTTPS_URL": os.getenv("RPC_HTTPS_URL"),
+    "PrivateKey": os.getenv("PrivateKey")
+}
+
+
+# Initialize the async Solana client with the RPC server URL from .env file
+async_solana_client = AsyncClient(config["RPC_HTTPS_URL"])
+
 
 solana_client = Client(config["RPC_HTTPS_URL"])
 
@@ -120,11 +130,26 @@ async def buy(solana_client, TOKEN_TO_SWAP_BUY, payer, amount):
 
 ##
 async def main():
+    # Validate the presence of PrivateKey in the environment variables
+    private_key_str = config.get("PrivateKey")
+    if not private_key_str:
+        raise ValueError("PrivateKey not found in environment variables. Please ensure it is defined.")
+    
+    # Once validated, initialize the payer with the PrivateKey
+    payer = Keypair.from_base58_string(private_key_str)
+    print(f"Payer PublicKey: {payer.pubkey()}")
 
-    token_toBuy="RUpbmGF6p42AAeN1QvhFReZejQry1cLkE1PUYFVVpnL" #Enter token you wish to buy here
-    payer = Keypair.from_base58_string(config["PrivateKey"])
-    print(payer.pubkey())
-    buy_transaction=await buy(solana_client, token_toBuy, payer, 0.02) #Enter amount of sol you wish to spend
-    print(buy_transaction)
+    # Define the token you wish to buy and the amount of SOL to spend
+    token_toBuy = "EPjFWdd5AufqSSqeM2qN1xzybapC8G4wEGGkZwyTDt1v"  # Replace with the actual token address
+    amount_SOL = 0.01  # The amount of SOL you wish to spend
+    
+    # Attempt to execute the buy transaction
+    buy_transaction = await buy(solana_client, token_toBuy, payer, amount_SOL)
+    if buy_transaction:
+        print("Buy transaction successful.")
+    else:
+        print("Buy transaction failed.")
 
-asyncio.run(main())
+# Execute the main coroutine
+if __name__ == "__main__":
+    asyncio.run(main())
