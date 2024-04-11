@@ -80,7 +80,7 @@ def sell(solana_client, TOKEN_TO_SWAP_SELL, payer):
             if WSOL_token_account_Instructions != None:
                 swap_tx.add(WSOL_token_account_Instructions)
             swap_tx.add(instructions_swap)
-             swap_tx.add(set_compute_unit_price(384_854))  #
+            swap_tx.add(set_compute_unit_price(384_854))  #
             swap_tx.add(set_compute_unit_limit(101_337))
             swap_tx.add(closeAcc)
 

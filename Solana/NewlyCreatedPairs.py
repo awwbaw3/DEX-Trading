@@ -4,6 +4,7 @@
 
 from time import sleep
 import logging
+import json
 
 import asyncio
 from typing import List, AsyncIterator, Tuple, Iterator
@@ -139,7 +140,7 @@ def get_tokens(signature: Signature, RaydiumLPV4: Pubkey) -> None:
     filtred_instuctions = instructions_with_program_id(instructions, RaydiumLPV4)
     logging.info(filtred_instuctions)
     for instruction in filtred_instuctions:
-        tokens = get_tokens_info(instruction)
+        tokens = get_tokens_info(instruction, signature)
         print_table(tokens)
         print(f"True, https://solscan.io/tx/{signature}")
 
@@ -166,12 +167,27 @@ def instructions_with_program_id(
 
 
 def get_tokens_info(
-    instruction: UiPartiallyDecodedInstruction | ParsedInstruction
+    instruction: UiPartiallyDecodedInstruction | ParsedInstruction, signature: Signature
 ) -> Tuple[Pubkey, Pubkey, Pubkey]:
     accounts = instruction.accounts
     Pair = accounts[4]
     Token0 = accounts[8]
     Token1 = accounts[9]
+    # Determine which token to log (not SOL)
+    native_sol_address = "So11111111111111111111111111111111111111112"
+    token_to_log = Token0 if Token0 != native_sol_address else Token1
+
+    # Construct the solscan URL using the passed signature
+    solscan_url = f"https://solscan.io/tx/{signature}"
+
+    # Log to new_tokens.log
+    token_data = {
+        "token": str(token_to_log),
+        "LP_URL": solscan_url
+    }
+    with open("new_tokens.log", 'a', encoding='utf-8') as token_file:
+        json.dump(token_data, token_file)
+        token_file.write("\n")
     # Start logging
     logging.info("find LP !!!")
     logging.info(f"\n Token0: {Token0}, \n Token1: {Token1}, \n Pair: {Pair}")
