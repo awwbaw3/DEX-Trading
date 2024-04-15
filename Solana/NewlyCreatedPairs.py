@@ -42,6 +42,10 @@ logging.basicConfig(filename='app.log', filemode='a', level=logging.DEBUG)
 # Writes responses from http req to  transactions.json
 
 async def main():
+    # Clear the new_tokens.log file at the start of the script
+    with open("new_tokens.log", 'w', encoding='utf-8') as token_file:
+        pass  # Simply open and close the file in write mode to clear it.
+
     """The client as an infinite asynchronous iterator:"""
     async for websocket in connect(WSS):
         try:

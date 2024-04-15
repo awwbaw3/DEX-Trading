@@ -49,6 +49,25 @@ doc = ["sphinx", "sphinxcontrib-trio"]
 test = ["black", "coverage", "flake8", "flake8-2020", "flake8-bugbear", "mypy", "pytest", "pytest-cov", "typing-extensions"]
 
 [[package]]
+name = "attrs"
+version = "23.2.0"
+description = "Classes Without Boilerplate"
+optional = false
+python-versions = ">=3.7"
+files = [
+    {file = "attrs-23.2.0-py3-none-any.whl", hash = "sha256:99b87a485a5820b23b879f04c2305b44b951b502fd64be915879d77a7e8fc6f1"},
+    {file = "attrs-23.2.0.tar.gz", hash = "sha256:935dc3b529c262f6cf76e50877d35a4bd3c1de194fd41f47a2b7ae8f19971f30"},
+]
+
+[package.extras]
+cov = ["attrs[tests]", "coverage[toml] (>=5.3)"]
+dev = ["attrs[tests]", "pre-commit"]
+docs = ["furo", "myst-parser", "sphinx", "sphinx-notfound-page", "sphinxcontrib-towncrier", "towncrier", "zope-interface"]
+tests = ["attrs[tests-no-zope]", "zope-interface"]
+tests-mypy = ["mypy (>=1.6)", "pytest-mypy-plugins"]
+tests-no-zope = ["attrs[tests-mypy]", "cloudpickle", "hypothesis", "pympler", "pytest (>=4.3.0)", "pytest-xdist[psutil]"]
+
+[[package]]
 name = "base58"
 version = "2.1.1"
 description = "Base58 and Base58Check implementation."
@@ -61,6 +80,21 @@ files = [
 
 [package.extras]
 tests = ["PyHamcrest (>=2.0.2)", "mypy", "pytest (>=4.6)", "pytest-benchmark", "pytest-cov", "pytest-flake8"]
+
+[[package]]
+name = "borsh-construct"
+version = "0.1.0"
+description = "Python implementation of Borsh serialization, built on the Construct library."
+optional = false
+python-versions = ">=3.8.3,<4.0.0"
+files = [
+    {file = "borsh-construct-0.1.0.tar.gz", hash = "sha256:c916758ceba70085d8f456a1cc26991b88cb64233d347767766473b651b37263"},
+    {file = "borsh_construct-0.1.0-py3-none-any.whl", hash = "sha256:f584c791e2a03f8fc36e6c13011a27bcaf028c9c54ba89cd70f485a7d1c687ed"},
+]
+
+[package.dependencies]
+construct-typing = ">=0.5.1,<0.6.0"
+sumtypes = ">=0.1a5,<0.2"
 
 [[package]]
 name = "certifi"
@@ -545,6 +579,20 @@ jsonalias = "0.1.1"
 typing-extensions = ">=4.2.0"
 
 [[package]]
+name = "sumtypes"
+version = "0.1a6"
+description = "Algebraic types for Python (notably providing Sum Types, aka Tagged Unions)"
+optional = false
+python-versions = "*"
+files = [
+    {file = "sumtypes-0.1a6-py2.py3-none-any.whl", hash = "sha256:3e9d71322dd927d25d935072f8be7daec655ea292fd392359a5bb2c1e53dfdc3"},
+    {file = "sumtypes-0.1a6.tar.gz", hash = "sha256:1a6ff095e06a1885f340ddab803e0f38e3f9bed81f9090164ca9682e04e96b43"},
+]
+
+[package.dependencies]
+attrs = "*"
+
+[[package]]
 name = "tabulate"
 version = "0.9.0"
 description = "Pretty-print tabular data"
@@ -732,4 +780,4 @@ testing = ["coverage (>=5.0.3)", "zope.event", "zope.testing"]
 [metadata]
 lock-version = "2.0"
 python-versions = "^3.12"
-content-hash = "3c9850036ea99238562489e510514ffc9ddb5e812bf5c40ca91a89cbe05b9be5"
+content-hash = "186320de966714a74c02967dc3d317ecff47b5bf3a188be72affbdf807da606d"

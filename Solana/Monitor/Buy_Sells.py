@@ -55,7 +55,8 @@ class style():
     UNDERLINE = '\033[4m'
     RESET = '\033[0m'
 #DCAK8tuwzsNowVA6eSojLHhHSDQMyECuSbu7KovyvYbm
-wallet_address = "DCAK8tuwzsNowVA6eSojLHhHSDQMyECuSbu7KovyvYbm" #
+#7xtDvkRosXtT6rSCvGJPJUjMFiTz25qGjqtR9uZWP6Aa
+wallet_address = "7xtDvkRosXtT6rSCvGJPJUjMFiTz25qGjqtR9uZWP6Aa" #Rick - F4wRpuorPn15kryBHTXX2baicTFFKVBAD4Q9Y33WoakG
 seen_signatures = set()
 WRAPPED_SOL_MINT = "So11111111111111111111111111111111111111112"
 Pool_raydium="675kPX9MHTjS2zt1qfr1NYHuzeLXfQM9H24wFSUt1Mp8"
